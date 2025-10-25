@@ -5,6 +5,8 @@ import { jwtSignUtil } from "../utils/jwtSignUtil.js";
 
 export const register = async (req, res) => {
     try {
+
+        //untuk mengambil body atau data dari request
         const registerData = req.body
 
         console.log(registerData);
@@ -12,9 +14,9 @@ export const register = async (req, res) => {
         const hashPassword = hash(registerData.password)
  
         await UserModel.create({
-            word : registerData.word,
-            meaning : registerData.meaning,
-            exampleSentence : hashPassword
+            username : registerData.username,
+            email : registerData.email,
+            password : hashPassword
         })
 
         res.status(201).json({
@@ -34,9 +36,10 @@ export const login = async (req,res) => {
         const loginData = req.body
 
         const user =  await UserModel.findOne({
-            meaning : loginData.meaning
+            email : loginData.email
         })
 
+        //jika user tidak ditemukan
         if(!user){
             res.status(404).json({
                 message : "User tidak ditemukan",
@@ -44,13 +47,14 @@ export const login = async (req,res) => {
             })
         }
 
+        // membandingkan password yang ada di dalam db dengan request
         if(compare(loginData.password, user.password)) {
             return res.status(200).json({
                 message : "Login Berhasil",
                 data : {
-                    word : user.word,
-                    meaning : user.meaning,
-                    token : jwtSignUtil(user)
+                    username : user.username,
+                    email : user.email,
+                    token : jwtSignUtil(user)// Melakukan sign JWT token
                 }
             })
         }
@@ -66,4 +70,4 @@ export const login = async (req,res) => {
             data : null
         })
     }
-  }
+}

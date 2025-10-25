@@ -2,41 +2,42 @@ import { compare } from "bcrypt";
 import UserModel from "../models/userModel.js";
 import { hash } from "../utils/hashUtil.js";
 import { jwtSignUtil } from "../utils/jwtSignUtil.js";
+import WordModel from "../models/wordModel.js";
 
 export const createWord = async (req, res) => {
   try {
    const request = req.body
 
-        const response = await UserModel.create({
+        const response = await WordModel.create({
             word : request.word,
             meaning : request.meaning,
             exampleSentence : request.exampleSentence
         })
 
         res.status(201).json({
-            word : "Data berhasil dibuat",
+            message : "Data berhasil dibuat",
             data : response
         })
         
     } catch (error) {
         res.status(500).json({
-            word : error,
+           message : error,
             data : null
         })
   }
 };
 
-export const getWord = async (req, res) => {
+export const listWord = async (req, res) => {
   try {
-    const data = await userModel.find({})
+    const data = await WordModel.find({})
 
         res.status(200).json({
-            word : "List Data",
+            message: "List Data",
             data : data
         })
     } catch (error) {
         res.status(500).json({
-            word : error,
+            message : error,
             data : null
         })
   }
@@ -49,30 +50,31 @@ export const updateWord = async (req, res) => {
 
         if(!id){
             return res.status(500).json({
-                word : "Id wajib diisi",
+                message : "Id wajib diisi",
                 data : null
             })
         }
 
-         const response = await userModel.findByIdAndUpdate(id, {
+         const response = await WordModel.findByIdAndUpdate(id, {
             word : request.word,
+            meaning : request.meaning,
             exampleSentence : request.exampleSentence
          })
 
         if(!response){
             return res.status(500).json({
-                word : "Data gagal diupdate",
+                message : "Data gagal diupdate",
                 data : null
             })
         }
 
         return res.status(200).json({
-            word : "Data mahasiswa berhasil diupdate"
+            message : "Data mahasiswa berhasil diupdate"
         })
 
     } catch (error) {
         res.status(500).json({
-            word : error,
+            message : error,
             data : null
         })
   }
@@ -83,28 +85,28 @@ export const deleteWord = async (req, res) => {
     const id = req.params.id
         if(!id){
             return res.status(500).json({
-                word : "Id wajib diisi",
+                message : "Id wajib diisi",
                 data : null
             })
         }
 
-        const response = await userModel.findByIdAndDelete(id)
+        const response = await WordModel.findByIdAndDelete(id)
 
         if(response){
             return res.status(200).json({
-                word : "Data berhasil dihapus",
+                message : "Data berhasil dihapus",
                 data : null
             })
         }
 
         return res.status(404).json({
-                word : "Data tidak ditemukan",
+                message : "Data tidak ditemukan",
                 data : null
             })
 
     } catch (error) {
         res.status(500).json({
-            word : error,
+            message : error,
             data : null
         })
   }

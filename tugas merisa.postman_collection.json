@@ -1,0 +1,104 @@
+{
+	"info": {
+		"_postman_id": "c4ccbb45-cc75-48de-ad10-2c77e3fae5e9",
+		"name": "tugas merisa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49481141",
+		"_collection_link": "https://sasamerisa05-4086255.postman.co/workspace/sasa's-Workspace~1663b0bb-355d-4175-8231-ca5403cdb36e/collection/49481141-c4ccbb45-cc75-48de-ad10-2c77e3fae5e9?action=share&source=collection_link&creator=49481141"
+	},
+	"item": [
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "createword",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"word\": \"serendipity\",\r\n  \"meaning\": \"menemukan sesuatu yang menyenangkan secara tak terduga\",\r\n  \"exampleSentence\": \"Finding that old photo was pure serendipity.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/word/createword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"word",
+						"createword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getword",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "updateword",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "deleteword",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

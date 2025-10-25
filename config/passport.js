@@ -11,7 +11,7 @@ passport.use(
     new Strategy(opts, async (payload, done) => {
         try{
             const user = await UserModel.findOne({
-                meaning : payload.meaning
+                email : payload.email
             })
 
             if(!user) {
@@ -20,8 +20,8 @@ passport.use(
 
             return done (null, {
                 id : user._id,
-                meaning : user.meaning,
-                word : user.word
+                email : user.email,
+                username: user.username
             })
 
         } catch (eror) {
