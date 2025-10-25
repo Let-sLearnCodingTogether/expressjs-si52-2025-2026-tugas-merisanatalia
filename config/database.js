@@ -1,15 +1,18 @@
-import mongoose from "mongoose";
+import mongoose, { syncIndexes } from "mongoose";
 
-export const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI);
+export const database = async () => {
+    try {
+        console.log("Starting connection to mongodb...");
 
-    console.log("MongoDB connected");
+        const response = await mongoose.connect("mongodb://127.0.0.1:27017/merisa?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.8")
 
-  } catch (error) {
+        console.log(`Connected succesfully to mongodb at : ${response.connection.host}`);
 
-    console.error("Database connection failed:", error.message);
+    } catch (error) {
+        console.log("Mongodb connection failed");
 
-    process.exit(1);
-  }
-};
+        process.exit(1)
+    }
+}
+
+export default database;
