@@ -54,6 +54,44 @@
 				],
 				"body": {
 					"mode": "raw",
+					"raw": "{\r\n  \"word\": \"epiphany\",\r\n  \"meaning\": \"pencerahan mendadak atau pemahaman yang tiba-tiba tentang sesuatu\",\r\n  \"exampleSentence\": \"She had an epiphany about what truly mattered in her life.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/word",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"word"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listword",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
 					"raw": "{\r\n  \"word\": \"serendipity\",\r\n  \"meaning\": \"menemukan sesuatu yang menyenangkan secara tak terduga\",\r\n  \"exampleSentence\": \"Finding that old photo was pure serendipity.\"\r\n}",
 					"options": {
 						"raw": {
@@ -62,25 +100,17 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/word/createword",
+					"raw": "http://localhost:3000/api/word",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"word",
-						"createword"
+						"api",
+						"word"
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "getword",
-			"request": {
-				"method": "GET",
-				"header": []
 			},
 			"response": []
 		},

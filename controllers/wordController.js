@@ -69,7 +69,7 @@ export const updateWord = async (req, res) => {
         }
 
         return res.status(200).json({
-            message : "Data mahasiswa berhasil diupdate"
+            message : "Data berhasil diupdate"
         })
 
     } catch (error) {

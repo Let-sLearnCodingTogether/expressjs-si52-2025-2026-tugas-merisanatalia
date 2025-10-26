@@ -4,7 +4,7 @@ const UserSchema = new mongoose.Schema (
     {
         username : {
             type : String,
-            required : [true, " User name wajib di isi"],
+            required : [true, " Username wajib di isi"],
             unique : true,
             trim : true
         },

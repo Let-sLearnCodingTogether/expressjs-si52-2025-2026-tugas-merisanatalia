@@ -2,7 +2,8 @@ import express from "express";
 import * as authController from "../controllers/authController.js"
 import * as wordController from "../controllers/wordController.js";
 import { protect } from "../middleware/authMiddleware.js";
-import * as profileController from "../controllers/profileController.js"
+import * as profileController from "../controllers/profileController.js";
+
 const api = express.Router();
 
 api.post('/register', authController.register);
