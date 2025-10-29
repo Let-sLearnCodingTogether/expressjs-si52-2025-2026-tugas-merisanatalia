@@ -6,7 +6,7 @@ import passport from "passport";
 const app = express();
 app.use(express.json())
 
-app.use(passport.initialize())
+app.use(passport.initialize());
 
 app.use(express.static('public'))
 

@@ -10,18 +10,21 @@ const opts = {
 passport.use(
     new Strategy(opts, async (payload, done) => {
         try{
+            //melakukan query ke dalam model user berdasarkan id
             const user = await UserModel.findOne({
                 email : payload.email
             })
 
+            // jika user tidak ditemukan
             if(!user) {
-                return done(nulll, false)
+                return done(null, false)
             }
 
+            //jika user di temukan masukkan payload berikut ini.
             return done (null, {
                 id : user._id,
                 email : user.email,
-                username: user.username
+                usename : user.username
             })
 
         } catch (eror) {

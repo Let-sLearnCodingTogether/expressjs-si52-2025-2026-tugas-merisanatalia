@@ -2,8 +2,8 @@ import jwt from "jsonwebtoken";
 
 export const jwtSignUtil = (user) => {
     const payload = {
-        word : user.word,
-        meaning : user.meaning
+        username : user.username,
+        email : user.email
     }
 
     const expiresIn = {
