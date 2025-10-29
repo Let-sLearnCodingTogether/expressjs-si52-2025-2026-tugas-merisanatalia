@@ -8,40 +8,6 @@
 	},
 	"item": [
 		{
-			"name": "register",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "http://localhost:3000/api/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"register"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "login",
-			"request": {
-				"method": "GET",
-				"header": []
-			},
-			"response": []
-		},
-		{
 			"name": "createword",
 			"request": {
 				"method": "POST",
@@ -124,6 +90,65 @@
 		},
 		{
 			"name": "deleteword",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1lcmlzYSIsImVtYWlsIjoibWVyaXNhQGdtYWlsLmNvbSIsImlhdCI6MTc2MTcxOTUwNSwiZXhwIjoxNzYxNzIzMTA1fQ.ZXwHFEHOzoGnO1dg1-QzaaqxgZQqV-w2S-33gIaZH30",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/me",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register baru",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "login baru",
 			"request": {
 				"method": "GET",
 				"header": []
